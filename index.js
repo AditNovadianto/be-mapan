@@ -5,6 +5,7 @@ import { db } from "./config/db.js";
 import employeerRoute from "./routes/employeerRoute.js";
 import jobSeekerRoute from "./routes/jobSeekerRoute.js";
 import jobPostingRoute from "./routes/jobPostingRoute.js";
+import jobSeekerProfileRoute from "./routes/jobSeekerProfileRoute.js";
 
 dotenv.config();
 
@@ -40,6 +41,7 @@ app.get("/", (req, res) => {
 app.use(employeerRoute);
 app.use(jobSeekerRoute);
 app.use(jobPostingRoute);
+app.use(jobSeekerProfileRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
