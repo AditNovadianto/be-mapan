@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { db } from "./config/db.js";
 import employeerRoute from "./routes/employeerRoute.js";
+import jobSeekerRoute from "./routes/jobSeekerRoute.js";
 
 dotenv.config();
 
@@ -36,6 +37,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(employeerRoute);
+app.use(jobSeekerRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
