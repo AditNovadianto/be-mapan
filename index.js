@@ -6,6 +6,7 @@ import employeerRoute from "./routes/employeerRoute.js";
 import jobSeekerRoute from "./routes/jobSeekerRoute.js";
 import jobPostingRoute from "./routes/jobPostingRoute.js";
 import jobSeekerProfileRoute from "./routes/jobSeekerProfileRoute.js";
+import jobSalaryMatricRoute from "./routes/jobSalaryMatricRoute.js";
 
 dotenv.config();
 
@@ -42,6 +43,7 @@ app.use(employeerRoute);
 app.use(jobSeekerRoute);
 app.use(jobPostingRoute);
 app.use(jobSeekerProfileRoute);
+app.use(jobSalaryMatricRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
