@@ -67,3 +67,31 @@ export async function deleteJobSalaryMatric(id_job_salary_matric) {
     throw error;
   }
 }
+
+// Search & Filter
+export async function searchJobSalaryMatric(job_title, location) {
+  try {
+    let query = "SELECT * FROM job_salary_matric WHERE 1=1";
+    const params = [];
+
+    // Jika FE mengirim query job_title
+    if (job_title) {
+      query += " AND job_title LIKE ?";
+      params.push(`%${job_title}%`);
+    }
+
+    // Jika FE mengirim query location
+    if (location) {
+      query += " AND location LIKE ?";
+      params.push(`%${location}%`);
+    }
+
+    query += " LIMIT 100"; // Batasi hasil agar response ringan
+
+    const [rows] = await db.query(query, params);
+    return rows;
+  } catch (error) {
+    console.error("Error searching job salary metric:", error);
+    throw error;
+  }
+}

@@ -5,6 +5,7 @@ import {
   deleteJobSalaryMatric,
   getJobSalaryMatricByJobPostingId,
   updateJobSalaryMatric,
+  searchJobSalaryMatric,
 } from "../controllers/jobSalaryMatricController.js";
 
 const router = express.Router();
@@ -25,5 +26,7 @@ router.delete(
   verifyToken,
   deleteJobSalaryMatric,
 );
+
+router.get("/search", verifyToken, searchJobSalaryMatric);
 
 export default router;
