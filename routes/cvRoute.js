@@ -22,10 +22,9 @@ router.post(
 );
 router.post(
   "/recommendCareer",
-  verifyToken,
   upload.fields([{ name: "cv", maxCount: 1 }]),
   recommendCareer,
 );
-router.post("/predictSalary", verifyToken, predictSalary);
+router.post("/predictSalary", predictSalary);
 
 export default router;
